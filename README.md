@@ -4,7 +4,7 @@
 - 📍 **Location**: Dodoma, Tanzania
 - 📧 **Email**: [sashashamsia@gmail.com](mailto:sashashamsia@gmail.com)
 - 📱 **WhatsApp**: [+255675839840](https://wa.me/255675839840)
-- 🌐 **Demo**: [Online](https://openanalytics.pythonanywhere.com/)
+- 🌐 **Demo**: [Online](https://opensciences.pythonanywhere.com/)
 
 ## Disclaimer
 
