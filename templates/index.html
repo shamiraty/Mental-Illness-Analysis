@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Use Analysis Results</title>
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min2.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+
+        }
+        
+
+        .card-body {
+            padding: 15px;
+            max-height: 500px;
+            overflow-y: auto;
+            
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            border-bottom: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .card-body i {
+            margin-right: 10px;
+            color: rgb(38, 0, 254);
+        }
+
+        .table-responsive {
+            margin-top: 20px;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            padding: 5px 10px;
+            margin: 0 3px;
+            border-radius: 5px;
+            background-color: rgb(0, 95, 197);
+            color: white;
+            border: none;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background-color: rgb(31, 85, 248);
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+            background-color: #ccc;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="breadcrumb-container bg-primary text-white py-0">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item text-white" aria-current="page">
+                        <h2 class="breadcrumb-text text-uppercase text-white">Intelligent Prediction System for Drug Use Victims: Prediction, Causal Analysis, and Dependency Risk</span><hr>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1 class="animated-text animate__animated animate__pulse">Mental Illness Analysis</h1>
+
+
+        <h5 class="card-text">Among the surveyed individuals affected by mental illness, a total of <span class="badge bg-primary">{{data_length}}</span> out of a population of 100,000, with an average population age ranging from <span class="badge bg-danger">{{age_ci[0] | round(2)}}</span> to <span class="badge bg-danger">{{age_ci[1] | round(2)}}</span>, it was found that:</p>
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">Mental Illness Survey Findings</h6>        
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Description</th>
+                                    <th>Most Significant</th>
+                                    <th>Second Most Significant</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>The most significant health symptom contributing to mental illness</td>
+                                    <td><span class="badge bg-primary">{{top_symptom}}</span></td>
+                                    <td><span class="badge bg-danger">{{second_top_symptom}}</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>The least significant health symptom contributing to mental illness</td>
+                                    <td><span class="badge bg-primary">{{least_symptom}}</span></td>
+                                    <td><span class="badge bg-danger">{{second_least_symptom}}</span></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>The most significant contributing factor to mental illness</td>
+                                    <td><span class="badge bg-primary">{{top_factor}}</span></td>
+                                    <td><span class="badge bg-danger">{{second_top_factor}}</span></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>The least significant contributing factor to mental illness</td>
+                                    <td><span class="badge bg-primary">{{least_factor}}</span></td>
+                                    <td><span class="badge bg-danger">{{second_least_factor}}</span></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>The most affected age group</td>
+                                    <td><span class="badge bg-primary">{{top_age_group}}</span></td>
+                                    <td><span class="badge bg-danger">{{second_top_age_group}}</span></td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>The lifestyle factor contributing the most</td>
+                                    <td><span class="badge bg-primary">{{top_lifestyle}}</span></td>
+                                    <td><span class="badge bg-danger">{{second_top_lifestyle}}</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+
+        
+
+
+
+
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="card">
+                    <div class="card-header">
+                        Symptoms Contribution
+                    </div>
+                    <div class="card-body">
+                        {{ symptom_importance | safe }}
+                    </div>
+                </div>
+            </div>
+
+
+
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="card">
+                    <div class="card-header">
+                        Classification Report
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Precision</th>
+                                    <th>Recall</th>
+                                    <th>F1-Score</th>
+                                    <th>Support</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0</td>
+                                    <td>{{ report['0']['precision'] | round(2) }}</td>
+                                    <td>{{ report['0']['recall'] | round(2) }}</td>
+                                    <td>{{ report['0']['f1-score'] | round(2) }}</td>
+                                    <td>{{ report['0']['support'] }}</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>{{ report['1']['precision'] | round(2) }}</td>
+                                    <td>{{ report['1']['recall'] | round(2) }}</td>
+                                    <td>{{ report['1']['f1-score'] | round(2) }}</td>
+                                    <td>{{ report['1']['support'] }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Accuracy</td>
+                                    <td colspan="4">{{ report['accuracy'] | round(2) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="card">
+                    <div class="card-header">
+                        Top Contributing Factors
+                    </div>
+                    <div class="card-body">
+                        {{ top_factors | safe }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="card">
+                    <div class="card-header">
+                        Least Contributing Factors
+                    </div>
+                    <div class="card-body">
+                        {{ least_factors | safe }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="card">
+                    <div class="card-header">
+                        Mental Illness by Age Group
+                    </div>
+                    <div class="card-body">
+                        {{ age_analysis | safe }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="card">
+                    <div class="card-header">
+                        Significant Symptoms
+                    </div>
+                    <div class="card-body">
+                        {{ significant_symptoms | safe }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="card">
+                    <div class="card-header">
+                        Insignificant Symptoms
+                    </div>
+                    <div class="card-body">
+                        {{ insignificant_symptoms | safe }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="card">
+                    <div class="card-header">
+                        Lifestyle Factors Contribution
+                    </div>
+                    <div class="card-body">
+                        {{ lifestyle_factors | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+
+</body>
+</html>
