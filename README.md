@@ -10,199 +10,124 @@
 
 ⚠️ This application is intended for educational purposes only. The data used in this system is randomly generated through programming and does not represent any specific region or real-world dataset. The data has been balanced to avoid biases that could lead to emotionally charged or misleading results. The findings and analyses presented are for learning purposes and do not reflect the views or positions of any group or institution.
 
-
 ## Introduction
 
-Drug abuse is a complex issue affecting individuals across various demographics. Drugs, in this context, refer to substances that alter a person's physical or mental state, often leading to addiction and detrimental health effects. The victims of drug abuse are diverse, encompassing individuals of all ages, genders, and socio-economic backgrounds. This system aims to provide insights into the factors influencing drug use and predict future trends.
+This web application provides a comprehensive analysis of drug use, identifying key contributing factors, demographic impacts, and future trends. By leveraging machine learning and statistical analysis, it delivers actionable insights to inform prevention and intervention strategies.
 
 ## Problem
 
-The prevalence of drug abuse poses a significant challenge to communities worldwide. Understanding the specific demographics and factors contributing to drug use is crucial for developing effective intervention strategies. This application addresses the need to:
-
-* **Identify high-risk groups:** Determine the age ranges, genders, and socio-economic factors most associated with drug use.
-* **Predict future trends:** Forecast drug use prevalence over the next three years to inform proactive measures.
-* **Analyze contributing factors:** Understand the impact of various socio-economic and lifestyle factors on drug use frequency.
+Drug use is a complex and widespread societal issue with significant consequences. Understanding the multifaceted factors that contribute to drug use, including demographic influences, lifestyle choices, and other variables, is essential for effective intervention. Traditional analysis methods often struggle to uncover the intricate patterns hidden within large datasets.
 
 ## Importance of Project
 
-This project provides valuable insights that can be used to:
+This project is vital because it:
 
-* Inform public health policies and interventions.
-* Target resources to high-risk populations.
-* Raise awareness about the factors contributing to drug abuse.
-* Enable early detection and intervention programs.
-* Provide data-driven recommendations for prevention and treatment.
+* **Provides Data-Driven Insights:** Utilizes advanced analytics to reveal hidden patterns in drug use data.
+* **Identifies Key Contributing Factors:** Pinpoints significant variables, demographic impacts, and lifestyle factors associated with drug use.
+* **Enables Demographic Analysis:** Analyzes drug use across genders and age groups, facilitating targeted support.
+* **Offers Future Predictions:** Forecasts future drug use trends, aiding in proactive planning and resource allocation.
+* **Ensures Accessible Information:** Makes complex data accessible to researchers, professionals, and the general public through a user-friendly interface.
+* **Supports Preventative Measures:** Allows for proactive risk mitigation by understanding contributing factors and future trends.
 
 ## Main Objective
 
-The primary objective of this application is to:
+The primary objective is to develop a web application that:
 
-* Develop a predictive model to analyze and forecast drug use frequency (represented by 'Y').
-* Identify the most influential factors contributing to drug use.
-* Determine the most affected demographics (gender and age groups).
-* Provide predictions for drug use prevalence in the next three years.
-* Provide a summary of the data, and influential factors.
-* Provide a list of recommendations based on the analysis.
+* Analyzes drug use data using machine learning and statistical methods.
+* Visualizes significant variables, demographic impacts, and lifestyle factors.
+* Provides detailed demographic analysis by gender and age.
+* Presents analysis results through a user-friendly web interface.
+* Forecasts drug use trends for the next three years.
+* Calculates and displays the R2 value for each variable to determine its relationship strength.
+* Provides confidence intervals for the average age of the dataset.
+* Offers actionable research recommendations based on the analysis.
+* Provides all analysis in English.
 
 ## Methodology
 
-The following technologies and methods were used in this project:
+The application's methodology encompasses:
 
-* **Python:** Used for data processing, model building, and application development.
-* **Flask:** A web framework used to create the web application.
-* **Pandas:** Used for data manipulation and analysis.
-* **NumPy:** Used for numerical operations.
-* **Scikit-learn (sklearn):** Used for machine learning, including:
-    * `LinearRegression`: Used for predictive modeling.
-    * `LabelEncoder`: Used for converting categorical data to numerical data.
-    * `train_test_split`: Used for splitting the data into training and testing sets.
-    * `r2_score`: Used for evaluating the model's performance.
-* **datetime:** Used for obtaining the current year.
-* **scipy.stats:** used for statistical analysis, such as calculating confidence intervals.
-* **HTML/CSS/Bootstrap:** Used for the web application's front-end design.
-* **DataTables:** Used for displaying data in a table format.
-* **Font Awesome:** Used for icons.
-* **Linear Regression:** the main model used to make predictions.
-* **R2 Score:** Used to evaluate the effectiveness of the model.
+1.  **Data Collection and Preprocessing:**
+    * Generating or loading a large dataset containing drug use-related variables.
+    * Transforming categorical variables using one-hot encoding.
+    * Handling missing data to ensure data integrity.
 
-### Data Description
+2.  **Statistical Analysis:**
+    * Calculating R2 values to measure the strength of the relationship between variables and drug use.
+    * Ranking variables by R2 values to identify significant contributors.
+    * Calculating confidence intervals of the age variable.
 
-The dataset used in this analysis includes a wide range of features to capture various aspects of drug use:
+3.  **Demographic Analysis:**
+    * Analyzing drug use prevalence across different genders and age groups.
+    * Utilizing R2 values to determine the most affected age ranges within each gender.
 
-* **Year:** The year the data was recorded.
-* **Age:** The age of the individual.
-* **Gender:** The gender of the individual (Male/Female).
-* **EducationLevel:** The individual's education level.
-* **EmploymentStatus:** The individual's employment status.
-* **Income:** The individual's income.
-* **MaritalStatus:** The individual's marital status.
-* **FamilyHistory:** Whether the individual has a family history of drug abuse.
-* **PeerPressure:** The level of peer pressure the individual experiences.
-* **StressLevel:** The individual's stress level.
-* **AccessToDrugs:** The ease of access to drugs.
-* **MentalHealthIssues:** Whether the individual has mental health issues.
-* **SocialSupport:** The level of social support the individual receives.
-* **NeighborhoodEnvironment:** The risk level of the individual's neighborhood.
-* **LeisureActivities:** The individual's leisure activities.
-* **DrugType:** The type of drug used.
-* **FrequencyOfUse:** The frequency of drug use.
-* **YearsOfUse:** The number of years of drug use.
-* **LegalIssues:** Whether the individual has legal issues related to drug use.
-* **FinancialProblems:** Whether the individual has financial problems related to drug use.
-* **RelationshipProblems:** Whether the individual has relationship problems related to drug use.
-* **PhysicalHealthProblems:** Whether the individual has physical health problems related to drug use.
-* **AcademicPerformance:** The individual's academic performance.
-* **LifeSatisfaction:** The individual's life satisfaction.
-* **UrbanRural:** Whether the individual lives in an urban or rural area.
-* **LifeStyle:** The individual's lifestyle.
-* **Y:** The frequency of drug use (target variable).
+4.  **Predictive Modeling:**
+    * Training predictive models to forecast drug use trends over the next three years.
+    * Forecasting overall drug use prevalence and prevalence within specific demographic groups.
+    * Predicting the strength of each variable's contribution in the future.
+    * Predicting drug use prevalence within specific age intervals.
+    * Predicting which lifestyle factors will be most affected.
 
-### Analysis and Interpretation
+5.  **Lifestyle Factor Analysis:**
+    * Analyzing the impact of various lifestyle factors on drug use.
+    * Identifying the most influential lifestyle factors contributing to drug use.
 
-1.  **Variable Importance (R2 Strength):**
-    * The R2 score for each variable against 'Y' indicates the strength of their relationship. Variables with higher R2 scores contribute more significantly to predicting drug use frequency. These are ranked and displayed to show the most influential factors.
-    * Interpretation: "Variable_name contributes to Y in the intensity of {{r2}}."
-2.  **Gender and Age Group Analysis:**
-    * The system identifies the most affected gender (male or female) based on R2 scores.
-    * For each gender, the most affected age range is determined using R2 scores, highlighting specific demographic vulnerabilities.
-3.  **Overall Variable Contribution:**
-    * The strength of each variable's contribution to 'Y' is displayed, providing a comprehensive view of the factors influencing drug use.
-4.  **Future Predictions (3 Years):**
-    * A predictive model forecasts the number of individuals affected by drug use in the next three years, both overall and broken down by gender.
-5.  **Lifestyle Impact:**
-    * The system identifies the lifestyle most associated with drug use based on predictive modeling.
-6.  **Age Group Predictions (3 Years):**
-    * Predictions are made for drug use frequency in various age intervals (e.g., 10-20, 20-30, 30-40) for the next three years, considering upper and lower class boundaries to ensure accurate analysis.
-7.  **Researcher Recommendations:**
-    * Based on the analysis, the system provides actionable recommendations for addressing drug abuse, including targeted interventions and prevention strategies.
+6.  **Web Application Development:**
+    * Developing a Flask web application to host and present analysis results.
+    * Designing a user-friendly interface using HTML and CSS.
+    * Utilizing data tables, charts, and visualizations to present findings.
+    * Displaying R2 values, demographic impacts, and future predictions.
+    * Displaying the confidence intervals of the age variable.
+    * Providing all analysis in English.
 
-### Summary of Findings
+7.  **Visualization and Reporting:**
+    * Presenting analysis results in a clear and concise manner.
+    * Using tables to display R2 values, demographic impacts, and future predictions.
+    * Visualizing trends and patterns with charts and graphs.
+    * Providing actionable recommendations based on the analysis.
 
-From the surveyed drug use victims, a total of {{data_length}} individuals were analyzed from a population of 100,000. The estimated average age of the entire population is {{interval estimation from ? to ? use 95% CI or alpha 0.05}}. The following key findings were observed:
+## Interpretation of Mental Illness Analysis (Example)
 
-1.  **Primary Cause:** The most significant factor contributing to drug use is (Variable Importance - highest R2).
-2.  **Most Affected Gender:** The gender most affected by drug use is (Gender Impact - highest R2).
-3.  **Age Range Impact:** For males, the most affected age range is (Age and Gender Impact - male highest R2), and for females, it is (Age and Gender Impact - female highest R2).
-4.  **Future Prevalence:** In the next three years ({{years}}), the predicted number of affected individuals will be (highest future prediction).
-5.  **Lifestyle Influence:** The lifestyle most contributing to drug use is (Lifestyle Impact - highest R2).
-6.  **Future Age Group Impact:** In the next three years ({{years}}), the age range with the highest predicted drug use frequency will be (Age Group Predictions - highest prediction), with a predicted number of (highest prediction value).
+Based on a sample analysis of mental illness, the following interpretations were derived:
 
-### Interpretation of Drug Analysis Results
+* **Overall Prevalence:**
+    * Among 10,000 surveyed individuals out of a population of 100,000, the average population age ranged from 48.16 to 48.87.
 
-#### Summary Overview
+* **Key Findings:**
+    * The most significant health symptom contributing to mental illness was "isolation," followed by "anxiety."
+    * The least significant health symptoms were "chronic\_illness" and "depression."
+    * The most significant contributing factors were "income" and "age."
+    * The least significant contributing factors were related to specific job types, such as "job\_type\_Unemployed" and "job\_type\_Office".
+    * The most affected age group was 18-30, followed closely by 31-50.
+    * The lifestyle factor contributing the most was "diet_quality".
 
-The provided data presents an analysis of drug use, focusing on identifying key factors, demographic impacts, and future predictions. The analysis is based on a sample of 10,000 individuals from a population of 100,000, with an estimated average age between 39.04 and 39.6 years (95% confidence).
+* **Symptom Contributions:**
+    * "Isolation" and "anxiety" showed the highest importance in symptom contributions.
+    * "Chronic\_illness" and "depression" showed the lowest importance.
 
-#### Key Findings
+* **Classification Report:**
+    * The model achieved an accuracy of 0.5.
 
-* **Primary Cause:**
-    * The most significant factor influencing drug use is **Peer Pressure**. This suggests that social influences play a crucial role in drug-related behaviors.
-* **Most Affected Gender:**
-    * **Females** are more affected by drug use than males, indicating a need for gender-specific intervention strategies.
-* **Age Range Impact:**
-    * For **males**, the most affected age range is **15-25 years**, highlighting the vulnerability of young males.
-    * For **females**, the most affected age range is **45-55 years**, suggesting different life-stage influences for women.
-* **Future Prevalence:**
-    * In the next three years (2026-2028), the highest predicted number of affected individuals is approximately **49.44**.
-* **Lifestyle Influence:**
-    * A **sedentary lifestyle** is the most significant lifestyle factor contributing to drug use.
+* **Top Contributing Factors:**
+    * "Income," "age," "stress\_level," "diet\_quality," and "sleep\_hours" were the top contributing factors.
 
-### Detailed Analysis
+* **Least Contributing Factors:**
+    * Specific job types showed the least contribution.
 
-#### Predicted Drug Usage Frequency
+* **Mental Illness by Age Group:**
+    * The prevalence of mental illness was slightly higher in the 18-30 and 31-50 age groups.
 
-* **Age Group Predictions:**
-    * The predicted drug usage frequency varies across age groups, with the **55-65** age group showing the highest expected frequency (50.476 times per year), closely followed by the 15-25 age range (49.454). This implies that drug use is a concern across all age groups, but that it is most prevalent in those two age ranges.
-* **Future Projections:**
-    * The overall drug usage frequency is predicted to be approximately 49.435 times per year in the next three years.
-    * **Female** drug usage is projected to be slightly higher than **male** drug usage.
+* **Lifestyle Factors:**
+    * "Diet\_quality" was the most influential lifestyle factor, followed by "alcohol" and "smoking."
 
-#### Variable Importance
+## Researcher Recommendations
 
-* **R2 Scores:**
-    * **Peer Pressure** has the highest R2 score (0.0005), confirming its significant impact.
-    * **Academic Performance**, **Frequency of Use**, and **Gender** also show relatively higher influence.
-    * Many variables have very low or zero R2 scores, indicating minimal linear relationships with drug use frequency. This could mean that these variables do not have a linear relationship with Y, or that other models should be investigated.
-* **Interpretation:**
-    * These scores indicate the strength of the linear relationship between each variable and drug use frequency. Higher scores suggest a stronger relationship.
+Based on the analysis, the following recommendations are provided:
 
-#### Gender Impact
-
-* **R2 Scores:**
-    * The R2 score for **females** (0.0081) is higher than that for **males** (0.0045), reinforcing the finding that females are more affected.
-
-#### Lifestyle Impact
-
-* **R2 Scores:**
-    * A **sedentary lifestyle** has the highest R2 score (0.0108), indicating a strong correlation with drug use frequency.
-
-#### Age and Gender Impact
-
-* **R2 Scores:**
-    * The highest R2 scores are observed in the **15-25** age range for males and the **45-55** age range for females, aligning with the earlier findings.
-
-#### Overall Accuracy
-
-* **R2 Score:**
-    * The overall model accuracy is **-0.0033**, which is very low. This suggests that the linear regression model used may not be the most appropriate for this data, or that the features need more preprocessing. A negative R2 score indicates that the model performs worse than simply predicting the mean of the target variable.
-
-#### Implications
-
-* Targeted interventions should focus on addressing peer pressure, especially among young males and middle-aged females.
-* Gender-specific strategies are essential, with a particular focus on female populations.
-* Promoting active lifestyles could help mitigate drug use.
-* The low overall accuracy of the model indicates a need for further model refinement or exploration of alternative modeling techniques.
-* The low r2 values across the board indicate that a linear model is not a good fit for this data. Other models should be investigated.
-
-### Researcher Recommendations
-
-Based on the analysis, the following actions are recommended:
-
-* Implement targeted interventions for high-risk age groups and genders.
-* Focus on addressing the most influential factors contributing to drug use.
-* Develop programs to promote healthy lifestyles and mitigate risk factors.
-* Conduct further research to understand the underlying causes of drug abuse.
-* Implement early detection and intervention programs in schools and communities.
-* Create programs that deal with financial and legal problems, as this can be a trigger.
-* Focus on education and job training to reduce unemployment and increase income.
-* Create programs that focus on stress management.
+* Target interventions towards the most affected demographic groups identified in the analysis.
+* Focus on addressing the significant contributing variables and lifestyle factors.
+* Implement proactive measures based on future predictions to mitigate potential increases in drug use.
+* Develop and implement educational programs that address the most affected lifestyle factors.
+* Develop and implement educational programs that address the most affected age groups.
+* Develop and implement educational programs that address the most affected gender.
+* Develop and implement educational programs that address the most significant contributing variables.
